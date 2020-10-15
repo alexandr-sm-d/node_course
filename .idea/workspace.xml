@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3e480e6-be3b-4000-bc56-20b76e8ec01e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/views/partials/footer.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/partials/head.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/about.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/about.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/index.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/add.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/courses.hbs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/partials/navbar.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/main.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/head.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/head.hbs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,11 +40,17 @@
       <option name="presentableId" value="Default" />
       <updated>1602787389377</updated>
       <workItem from="1602787390418" duration="138000" />
-      <workItem from="1602787761407" duration="1638000" />
+      <workItem from="1602787761407" duration="4313000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602791070745">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1602791070745" />
   </component>
 </project>
