@@ -2,6 +2,9 @@ const express = require('express')
 const expressHBS = require('express-handlebars')
 const path = require('path')
 const app = express();
+const RouterHome = require('./routes/home')
+const RouterCourses = require('./routes/courses')
+const RouterAdd = require('./routes/add')
 
 const hbs = expressHBS.create({
     defaultLayout: 'main',
@@ -13,39 +16,12 @@ app.set('view engine', 'hbs')
 app.set('views', 'views')
 
 app.use(express.static('public'))
+app.use('/', RouterHome)
+app.use('/courses', RouterCourses)
+app.use('/add', RouterAdd)
 
-// app.get('/', ((req, res) => {
-//     res.sendFile(path.join(__dirname, 'views', 'index.hbs'))
-// }))
-//
-// app.get('/about', ((req, res) => {
-//     res.sendFile(path.join(__dirname, 'views', 'about.hbs'))
-// }))
 
-app.get('/', ((req, res) => {
-    res.render('index', {
-        title: 'Home page',
-        isHome: true
-    })
-}))
 
-app.get('/about', ((req, res) => {
-    res.render('about')
-}))
-
-app.get('/courses', ((req, res) => {
-    res.render('courses', {
-        title: 'Courses',
-        isCourses: true
-    })
-}))
-
-app.get('/add', ((req, res) => {
-    res.render('add', {
-        title: 'Add',
-        isAdd: true
-    })
-}))
 
 const PORT = process.env.PORT || 3000
 
