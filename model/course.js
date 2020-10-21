@@ -23,7 +23,7 @@ class Course {
         })
     }
 
-    toJSON() {
+    getCurrentCourse() {
         return {
             title: this.title,
             price: this.price,
@@ -35,7 +35,7 @@ class Course {
     async save() {
         try {
             let courses = await Course.getAllCourses()
-            courses.push(this.toJSON())
+            courses.push(this.getCurrentCourse())
             // console.log(typeof courses)
             console.log('course saved', courses)
 
