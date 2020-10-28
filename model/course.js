@@ -28,6 +28,27 @@ class Course {
         return courses.find(c => c.id === id)
     }
 
+    static async updateCourse(course) {
+        try {
+            const courses = await Course.getAllCourses()
+            let targetIndex = courses.findIndex(c => c.id === course.id)
+            courses[targetIndex] = course
+
+            return new Promise((resolve, reject) => {
+                try {
+                    (async (path) => {
+                        await fsPromises.writeFile(path, JSON.stringify(courses))
+                        resolve()
+                    })(path.join(__dirname, '..', 'data', 'courses.json'))
+                } catch (e) {
+                    reject(e)
+                }
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     getCurrentCourse() {
         return {
             title: this.title,

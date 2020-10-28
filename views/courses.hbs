@@ -1,6 +1,5 @@
 <h1>Courses</h1>
 {{#if courses.length}}
-    <!--    <p>{{courses}}</p>-->
     {{#each courses}}
         <div class="row">
             <div class="col s6 offset-s3">
@@ -13,7 +12,8 @@
                         <p class="price">{{price}}</p>
                     </div>
                     <div class="card-action">
-                        <a href="/courses/{{id}}" target="_blank">Open this course</a>
+                        <a href="/courses/{{id}}" target="_blank">Open course</a>
+                        <a href="/courses/{{id}}/edit?allow=true">Edit course</a>
                     </div>
                 </div>
             </div>
