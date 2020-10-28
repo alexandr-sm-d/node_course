@@ -10,7 +10,7 @@ router.get('/', ((req, res) => {
 }))
 
 router.post('/', async (req, res) => {
-    // console.log(req.body)
+    console.log(req.body)
     try {
         const course = new Courses(
             req.body.title,
