@@ -26,3 +26,9 @@
     font-size: 2.5rem;
     margin: 0;
 }
+
+.card-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

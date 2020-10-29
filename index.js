@@ -1,10 +1,10 @@
 const express = require('express')
 const expressHBS = require('express-handlebars')
-const path = require('path')
 const app = express();
 const RouterHome = require('./routes/home')
 const RouterCourses = require('./routes/courses')
 const RouterAdd = require('./routes/add')
+const RouterCart = require('./routes/cart')
 
 const hbs = expressHBS.create({
     defaultLayout: 'main',
@@ -21,6 +21,7 @@ app.use(express.urlencoded({extended: true}))
 app.use('/', RouterHome)
 app.use('/courses', RouterCourses)
 app.use('/add', RouterAdd)
+app.use('/cart', RouterCart)
 
 const PORT = process.env.PORT || 3000
 

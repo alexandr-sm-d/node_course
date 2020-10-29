@@ -1,0 +1,26 @@
+{
+  "products": [
+    {
+      "title": "Angular",
+      "price": "23000",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png",
+      "id": "a340b9a7-1a2f-4f31-a097-073555d85e89",
+      "count": 1
+    },
+    {
+      "title": "React",
+      "price": "13000",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+      "id": "8116d110-4ee9-4f47-b55e-6f6b28328b79",
+      "count": 1
+    },
+    {
+      "title": "Vue",
+      "price": "10000",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
+      "id": "e33595d7-50f2-459c-bbfc-77d412bdfc94",
+      "count": 2
+    }
+  ],
+  "totalPrice": 56000
+}
