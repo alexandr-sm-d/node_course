@@ -48,6 +48,35 @@ class Cart {
             console.log(e)
         }
     }
+
+    static async removeProductById(id) {
+        try {
+            const cart = await Cart.getAllPurchaseOrders()
+            let targetIndex = cart.products.findIndex(p => p.id === id)
+            const course = cart.products[targetIndex]
+
+            if (course.count === 1) {
+                cart.products = cart.products.filter(p => p.id !== id)
+            } else {
+                cart.products[targetIndex].count--
+            }
+
+            cart.totalPrice -= course.price
+
+            return new Promise((resolve, reject) => {
+                try {
+                    (async (path) => {
+                        await fsPromises.writeFile(path, JSON.stringify(cart))
+                        resolve(cart)
+                    })(path.join(__dirname, '..', 'data', 'cart.json'))
+                } catch (e) {
+                    reject(e)
+                }
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
 }
 
 module.exports = Cart
