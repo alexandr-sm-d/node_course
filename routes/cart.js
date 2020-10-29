@@ -3,10 +3,12 @@ const router = Router()
 const Cart = require('../model/cart')
 
 router.get('/', async (req, res) => {
-    // const cart = await Cart.getAllPurchaseOrders()
+    const cart = await Cart.getAllPurchaseOrders()
     res.render('cart', {
         title: 'Cart',
         isCart: true,
+        products: cart.products,
+        totalPrice: cart.totalPrice
     })
 })
 
