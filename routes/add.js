@@ -10,13 +10,26 @@ router.get('/', ((req, res) => {
 }))
 
 router.post('/', async (req, res) => {
-    console.log(req.body)
+    // console.log(req.body)
+    // try {
+    //     const course = new Courses(
+    //         req.body.title,
+    //         req.body.price,
+    //         req.body.img
+    //     )
+    //     await course.save()
+    //     res.redirect('/courses')
+    // } catch (e) {
+    //     console.log(e)
+    // }
+
+    const course = new Courses({
+        title: req.body.title,
+        price: req.body.price,
+        img: req.body.img
+    })
+
     try {
-        const course = new Courses(
-            req.body.title,
-            req.body.price,
-            req.body.img
-        )
         await course.save()
         res.redirect('/courses')
     } catch (e) {

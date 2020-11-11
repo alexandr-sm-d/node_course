@@ -26,18 +26,25 @@ app.use('/courses', RouterCourses)
 app.use('/add', RouterAdd)
 app.use('/cart', RouterCart)
 
-(async function () {
+const PORT = process.env.PORT || 3000
+
+async function start() {
     try {
-        const PORT = process.env.PORT || 3000
         const password = '5mBnUrsqzDmMOgXW'
         const dbname = 'Cluster0'
         const url = `mongodb+srv://alexandr:${password}@cluster0.phegs.mongodb.net/${dbname}?retryWrites=true&w=majority`
+        // const url = `mongodb+srv://alexandr:${password}@cluster0.phegs.mongodb.net/shop`
 
-        await mongoose.connect(url, {useNewUrlParser: true})
+        await mongoose.connect(url, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        })
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`)
         })
     } catch (err) {
         console.log(err)
     }
-})()
+}
+
+start()
