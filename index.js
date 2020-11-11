@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const mongoose = require('mongoose')
 const expressHBS = require('express-handlebars')
 const app = express();
 const RouterHome = require('./routes/home')
@@ -25,8 +26,18 @@ app.use('/courses', RouterCourses)
 app.use('/add', RouterAdd)
 app.use('/cart', RouterCart)
 
-const PORT = process.env.PORT || 3000
+(async function () {
+    try {
+        const PORT = process.env.PORT || 3000
+        const password = '5mBnUrsqzDmMOgXW'
+        const dbname = 'Cluster0'
+        const url = `mongodb+srv://alexandr:${password}@cluster0.phegs.mongodb.net/${dbname}?retryWrites=true&w=majority`
 
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+        await mongoose.connect(url, {useNewUrlParser: true})
+        app.listen(PORT, () => {
+            console.log(`Server is running on port ${PORT}`)
+        })
+    } catch (err) {
+        console.log(err)
+    }
+})()
