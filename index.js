@@ -1,7 +1,9 @@
 const express = require('express')
 const path = require('path')
 const mongoose = require('mongoose')
+const Handlebars = require('handlebars')
 const expressHBS = require('express-handlebars')
+const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const app = express();
 const RouterHome = require('./routes/home')
 const RouterCourses = require('./routes/courses')
@@ -11,6 +13,7 @@ const RouterCart = require('./routes/cart')
 
 const hbs = expressHBS.create({
     defaultLayout: 'main',
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
     extname: 'hbs'
 })
 
