@@ -9,6 +9,7 @@ const RouterHome = require('./routes/home')
 const RouterCourses = require('./routes/courses')
 const RouterAdd = require('./routes/add')
 const RouterCart = require('./routes/cart')
+const RouterOrders = require('./routes/orders')
 const User = require('./model/user')
 
 
@@ -39,6 +40,7 @@ app.use('/', RouterHome)
 app.use('/courses', RouterCourses)
 app.use('/add', RouterAdd)
 app.use('/cart', RouterCart)
+app.use('/orders', RouterOrders)
 
 const PORT = process.env.PORT || 3000
 
