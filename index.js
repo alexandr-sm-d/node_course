@@ -9,6 +9,7 @@ const RouterHome = require('./routes/home')
 const RouterCourses = require('./routes/courses')
 const RouterAdd = require('./routes/add')
 const RouterCart = require('./routes/cart')
+const User = require('./model/user')
 
 
 const hbs = expressHBS.create({
@@ -20,6 +21,16 @@ const hbs = expressHBS.create({
 app.engine('hbs', hbs.engine)
 app.set('view engine', 'hbs')
 app.set('views', 'views')
+
+app.use(async (req,res,next) => {
+    try {
+        let user = await User.findById('5facf0a3d39f370b1c4b396e')
+        req.user = user
+        next()
+    } catch (e) {
+        console.log(e)
+    }
+})
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
@@ -42,6 +53,18 @@ async function start() {
             useUnifiedTopology: true,
             useFindAndModify: false
         })
+
+        let candidate = await User.findOne()
+        if (!candidate) {
+            let user = new User({
+                email: 'alex@mail.ru',
+                name: 'Alex',
+                cart: {items: []}
+            })
+
+            user.save()
+        }
+
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`)
         })
