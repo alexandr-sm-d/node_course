@@ -18,16 +18,13 @@ function getTotalPrice(courses) {
 router.get('/', async (req, res) => {
     let user = await req.user.populate('cart.items.courseID').execPopulate()
     let courses = mapCart(user.cart)
-
     console.log(courses)
-
     res.render('cart', {
         title: 'Cart',
         isCart: true,
         products: courses,
         totalPrice: getTotalPrice(courses)
     })
-    // res.json({test: true})
 })
 
 router.post('/add', async (req, res) => {
@@ -37,8 +34,21 @@ router.post('/add', async (req, res) => {
 })
 
 router.delete('/remove/:id', async (req, res) => {
-    const cart = await Cart.removeProductById(req.params.id)
-    res.json(cart)
+    try {
+        const course = await Courses.findById(req.params.id)
+        await req.user.removeFromCart(course)
+
+        let user = await req.user.populate('cart.items.courseID').execPopulate()
+        let courses = mapCart(user.cart)
+        let totalPrice = getTotalPrice(courses)
+
+        res.json({
+            courses: courses,
+            totalPrice: totalPrice,
+        })
+    } catch (e) {
+        console.log(e)
+    }
 })
 
 module.exports = router

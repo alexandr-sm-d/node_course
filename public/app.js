@@ -16,19 +16,19 @@ if ($cart) {
     $cart.addEventListener('click', event => {
         if (event.target.classList.contains('js-remove')) {
             const id = event.target.dataset.id
+            console.log(id)
             fetch('/cart/remove/' + id, {
                 method: "delete"
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
-                    if (data.products.length) {
-                        let tr = data.products.map(p => `
+                    if (data.courses.length) {
+                        let tr = data.courses.map(p => `
                             <tr>
                                 <td>${p.title}</td>
                                 <td>${p.count}</td>
                                 <td>
-                                    <button class="btn-small js-remove" data-id="${p.id}">Delete</button>
+                                    <button class="btn-small js-remove" data-id="${p._id}">Delete</button>
                                 </td>
                             </tr>
                         `).join('')
