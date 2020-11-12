@@ -5,6 +5,7 @@ const Courses = require('../model/course')
 function mapCart(cart) {
     return cart.items.map(c => ({
         ...c.courseID._doc, // убери _doc, все увидишь, куча metadata
+        id: c.courseID.id,
         count: c.count
     }))
 }
