@@ -31,7 +31,6 @@ if ($cart) {
     $cart.addEventListener('click', event => {
         if (event.target.classList.contains('js-remove')) {
             const id = event.target.dataset.id
-            console.log(id)
             fetch('/cart/remove/' + id, {
                 method: "delete"
             })
@@ -56,3 +55,5 @@ if ($cart) {
         }
     })
 }
+
+M.Tabs.init(document.querySelectorAll('.tabs'))

@@ -19,7 +19,7 @@ function getTotalPrice(courses) {
 router.get('/', async (req, res) => {
     let user = await req.user.populate('cart.items.courseID').execPopulate()
     let courses = mapCart(user.cart)
-    console.log(courses)
+
     res.render('cart', {
         title: 'Cart',
         isCart: true,

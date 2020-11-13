@@ -13,7 +13,6 @@ router.get('/', async (req, res) => {
                 return total += course.count * course.course.price
             }, 0)
         }))
-        console.log(ordersMap)
 
         res.render('orders', {
             title: 'Orders',
