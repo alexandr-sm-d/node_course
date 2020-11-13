@@ -2,11 +2,27 @@ const {Router} = require('express')
 const router = Router()
 const Order = require('../model/order')
 
-router.get('/', (req, res) => {
-    res.render('orders', {
-        title: 'Orders',
-        isOrders: true
-    })
+router.get('/', async (req, res) => {
+    try {
+        let orders = await Order.find({'user.userID': req.user._id})
+            .populate('user.userID')
+
+        let ordersMap = orders.map(o => ({
+            ...o._doc,
+            totalPrice: o.courses.reduce((total, course) => {
+                return total += course.count * course.course.price
+            }, 0)
+        }))
+        console.log(ordersMap)
+
+        res.render('orders', {
+            title: 'Orders',
+            isOrders: true,
+            orders: ordersMap
+        })
+    } catch (e) {
+        console.log(e)
+    }
 })
 
 router.post('/', async (req, res) => {
