@@ -1,4 +1,5 @@
 const {Router} = require('express')
+const User = require('../model/user')
 const router = Router()
 
 router.get('/', async (req, res) => {
@@ -15,8 +16,16 @@ router.get('/signout', (req, res) => {
 })
 
 router.post('/signin', async (req, res) => {
+    let user = await User.findById('5facf0a3d39f370b1c4b396e')
+    req.session.user = user
     req.session.isAuthenticated = true
-    res.redirect('/')
+    req.session.save(err => {
+        if (err) {
+            throw err
+        } else {
+            res.redirect('/')
+        }
+    })
 })
 
 module.exports = router
