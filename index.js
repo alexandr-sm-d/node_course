@@ -11,15 +11,20 @@ const RouterAdd = require('./routes/add')
 const RouterCart = require('./routes/cart')
 const RouterOrders = require('./routes/orders')
 const RouterAuth = require('./routes/auth')
-const User = require('./model/user')
 const session = require('express-session')
+const MongoStore = require('connect-mongodb-session')(session)
 const defineAuth = require('./middleware/defineAuth')
 
-
+const MONGODB_URI = `mongodb+srv://alexandr:Lsgwt1mH29LqHc4F@cluster0.phegs.mongodb.net/Cluster0?retryWrites=true&w=majority`
 const hbs = expressHBS.create({
     defaultLayout: 'main',
     handlebars: allowInsecurePrototypeAccess(Handlebars),
     extname: 'hbs'
+})
+
+const store = MongoStore({
+    collection: 'sessions',
+    uri: MONGODB_URI
 })
 
 app.engine('hbs', hbs.engine)
@@ -32,6 +37,7 @@ app.use(session({
     secret: 'secret value',
     resave: false,
     saveUninitialized: false,
+    store
 }))
 
 app.use(defineAuth)
@@ -47,9 +53,7 @@ const PORT = process.env.PORT || 3000
 
 async function start() {
     try {
-        const password = 'Lsgwt1mH29LqHc4F'
-        const dbname = 'Cluster0'
-        const url = `mongodb+srv://alexandr:${password}@cluster0.phegs.mongodb.net/${dbname}?retryWrites=true&w=majority`
+        const url = MONGODB_URI
 
         await mongoose.connect(url, {
             useNewUrlParser: true,

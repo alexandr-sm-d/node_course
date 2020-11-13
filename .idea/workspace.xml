@@ -22,9 +22,8 @@
     <list default="true" id="e3e480e6-be3b-4000-bc56-20b76e8ec01e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/defineAuth.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/defineAuth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/navbar.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/navbar.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +84,7 @@
       <workItem from="1605168239219" duration="682000" />
       <workItem from="1605169049886" duration="11932000" />
       <workItem from="1605251169593" duration="4423000" />
-      <workItem from="1605266035796" duration="5775000" />
+      <workItem from="1605266035796" duration="7949000" />
     </task>
     <servers />
   </component>
