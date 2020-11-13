@@ -12,6 +12,8 @@ const RouterCart = require('./routes/cart')
 const RouterOrders = require('./routes/orders')
 const RouterAuth = require('./routes/auth')
 const User = require('./model/user')
+const session = require('express-session')
+const defineAuth = require('./middleware/defineAuth')
 
 
 const hbs = expressHBS.create({
@@ -36,6 +38,13 @@ app.use(async (req,res,next) => {
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.urlencoded({extended: true}))
+app.use(session({
+    secret: 'secret value',
+    resave: false,
+    saveUninitialized: false,
+}))
+
+app.use(defineAuth)
 
 app.use('/', RouterHome)
 app.use('/courses', RouterCourses)
